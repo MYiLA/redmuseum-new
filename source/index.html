@@ -20,25 +20,27 @@
 <body>
   <div class="wrap">
     <header class="header">
-      <div class="header__menu">
-        <a class="header__logo" href="index.html">
-          <h1 class="header__logo-text">
-            центр<br>экспериментальной<br>музеологии
-          </h1>
-        </a>
-        <form class="header__form" method="POST">
-          <div class="header__search search">
-            <input class="search__input" type="text" id="search" name="search-tags" autocomplete="off">
-            <label class="search__label" for="search">категории и поиск</label>
-            <button class="search__reset" type="reset" aria-label="Сбросить настройки поиска"></button>
-          </div>
-        </form>
-        <a class="header__lang" href="#">
-          en
-        </a>
-
+      <div class="header__wrap-fixed">
+        <div class="header__menu">
+          <a class="header__logo" href="index.html">
+            <h1 class="header__logo-text">
+              центр<br>экспериментальной<br>музеологии
+            </h1>
+          </a>
+          <form class="header__form" method="POST">
+            <div class="header__search search">
+              <input class="search__input" type="text" id="search" name="search-tags" autocomplete="off">
+              <label class="search__label" for="search">категории и поиск</label>
+              <button class="search__reset" type="reset" aria-label="Сбросить настройки поиска"></button>
+            </div>
+          </form>
+          <a class="header__lang" href="#">
+            en
+          </a>
+        </div>
       </div>
-      <div class="header__tags tags">
+
+      <div class="header__tags tags opacity--0">
         <ul class="tags__list">
           <li class="tags__item">
             <a class="tags__link" href="#">
@@ -110,117 +112,152 @@
     </header>
 
 
-    <main class="blog">
-      <article class="blog__article article high-img">
-        <time class="article__time" datetime="2020-12-09">09.12.2020</time>
-        <a class="article__link" href="article-page.html">
-          <figure class="article__figure">
-            <img src="./img/img-2.jpg" alt="пещера антиматерии">
-            <figcaption class="article__figcaption">
-              <address class="article__author">
-                Никола Пезолет
-              </address>
-              <h2 class="article__title">
-                пещера антиматерии: джузеппе «пино» галлицио и
-                технологическое воображаемое раннего ситуационистского интернационала
-              </h2>
-            </figcaption>
-          </figure>
-        </a>
-      </article>
+    <main>
+      <div class="blog-wrap" id="blog-wrap">
+        <div class="blog">
+          <article class="blog__article article">
+            <time class="article__time" datetime="2020-12-09">09.12.2020</time>
+            <a class="article__link" href="article-page.html">
+              <figure class="article__figure">
+                <img src="./img/img-2.jpg" alt="пещера антиматерии">
+                <figcaption class="article__figcaption">
+                  <address class="article__author">
+                    Никола Пезолет
+                  </address>
+                  <h2 class="article__title">
+                    пещера антиматерии: джузеппе «пино» галлицио и
+                    технологическое воображаемое раннего ситуационистского интернационала
+                  </h2>
+                </figcaption>
+              </figure>
+            </a>
+          </article>
 
-      <article class="blog__article article narrow-img about">
-        <time class="article__time" datetime="2020-12-09">09.12.2020</time>
-        <a class="article__link" href="article-page.html">
-          <figure class="article__figure">
-            <img src="./img/img-3.jpg" alt="пещера антиматерии">
-            <figcaption class="article__figcaption">
-              <address class="article__author">
-                Никола Пезолет
-              </address>
-              <h2 class="article__title">
-                пещера антиматерии: джузеппе «пино» галлицио и
-                технологическое воображаемое раннего ситуационистского интернационала
-              </h2>
-            </figcaption>
-          </figure>
-        </a>
-      </article>
+          <article class="blog__article article about">
+            <time class="article__time" datetime="2020-12-09">09.12.2020</time>
+            <a class="article__link" href="article-page.html">
+              <figure class="article__figure">
+                <img src="./img/img-3.jpg" alt="пещера антиматерии">
+                <figcaption class="article__figcaption">
+                  <address class="article__author">
+                    Никола Пезолет
+                  </address>
+                  <h2 class="article__title">
+                    пещера антиматерии: джузеппе «пино» галлицио и
+                    технологическое воображаемое раннего ситуационистского интернационала
+                  </h2>
+                </figcaption>
+              </figure>
+            </a>
+          </article>
 
-      <article class="blog__article article standart-img book">
-        <time class="article__time" datetime="2020-12-09">09.12.2020</time>
-        <a class="article__link" href="article-page.html">
-          <figure class="article__figure">
-            <img src="./img/img-3.jpg" alt="пещера антиматерии">
-            <figcaption class="article__figcaption">
-              <h2 class="article__title">
-                пещера антиматерии: джузеппе «пино» галлицио и
-                технологическое воображаемое раннего ситуационистского интернационала
-              </h2>
-            </figcaption>
-          </figure>
-        </a>
-      </article>
+          <article class="blog__article article book">
+            <time class="article__time" datetime="2020-12-09">09.12.2020</time>
+            <a class="article__link" href="article-page.html">
+              <figure class="article__figure">
+                <img src="./img/img-3.jpg" alt="пещера антиматерии">
+                <figcaption class="article__figcaption">
+                  <h2 class="article__title">
+                    пещера антиматерии: джузеппе «пино» галлицио и
+                    технологическое воображаемое раннего ситуационистского интернационала
+                  </h2>
+                </figcaption>
+              </figure>
+            </a>
+          </article>
 
-      <article class="blog__article article high-img">
-        <time class="article__time" datetime="2020-12-09">09.12.2020</time>
-        <a class="article__link" href="article-page.html">
-          <figure class="article__figure">
-            <img src="./img/img-2.jpg" alt="пещера антиматерии">
-            <figcaption class="article__figcaption">
-              <h2 class="article__title">
-                пещера антиматерии: джузеппе «пино» галлицио и
-                технологическое воображаемое раннего ситуационистского интернационала
-              </h2>
-            </figcaption>
-          </figure>
-        </a>
-      </article>
+          <article class="blog__article article">
+            <time class="article__time" datetime="2020-12-09">09.12.2020</time>
+            <a class="article__link" href="article-page.html">
+              <figure class="article__figure">
+                <img src="./img/img-2.jpg" alt="пещера антиматерии">
+                <figcaption class="article__figcaption">
+                  <h2 class="article__title">
+                    пещера антиматерии: джузеппе «пино» галлицио и
+                    технологическое воображаемое раннего ситуационистского интернационала
+                  </h2>
+                </figcaption>
+              </figure>
+            </a>
+          </article>
 
-      <article class="blog__article article standart-img project">
-        <time class="article__time" datetime="2020-12-09">09.12.2020</time>
-        <a class="article__link" href="article-page.html">
-          <figure class="article__figure">
-            <img src="./img/img-2.jpg" alt="пещера антиматерии">
-            <figcaption class="article__figcaption">
-              <h2 class="article__title">
-                пещера антиматерии: джузеппе «пино» галлицио и
-                технологическое воображаемое раннего ситуационистского интернационала
-              </h2>
-            </figcaption>
-          </figure>
-        </a>
-      </article>
+          <article class="blog__article article project">
+            <time class="article__time" datetime="2020-12-09">09.12.2020</time>
+            <a class="article__link" href="article-page.html">
+              <figure class="article__figure">
+                <img src="./img/img-2.jpg" alt="пещера антиматерии">
+                <figcaption class="article__figcaption">
+                  <h2 class="article__title">
+                    пещера антиматерии: джузеппе «пино» галлицио и
+                    технологическое воображаемое раннего ситуационистского интернационала
+                  </h2>
+                </figcaption>
+              </figure>
+            </a>
+          </article>
 
-      <article class="blog__article article narrow-img grant">
-        <time class="article__time" datetime="2020-12-09">09.12.2020</time>
-        <a class="article__link" href="article-page.html">
-          <figure class="article__figure">
-            <img src="./img/img-1.jpg" alt="пещера антиматерии">
-            <figcaption class="article__figcaption">
-              <h2 class="article__title">
-                пещера антиматерии: джузеппе «пино» галлицио и
-                технологическое воображаемое раннего ситуационистского интернационала
-              </h2>
-            </figcaption>
-          </figure>
-        </a>
-      </article>
+          <article class="blog__article article grant">
+            <time class="article__time" datetime="2020-12-09">09.12.2020</time>
+            <a class="article__link" href="article-page.html">
+              <figure class="article__figure">
+                <img src="./img/img-2.jpg" alt="пещера антиматерии">
+                <figcaption class="article__figcaption">
+                  <h2 class="article__title">
+                    пещера антиматерии: джузеппе «пино» галлицио и
+                    технологическое воображаемое раннего ситуационистского интернационала
+                  </h2>
+                </figcaption>
+              </figure>
+            </a>
+          </article>
 
-      <article class="blog__article article high-img">
-        <time class="article__time" datetime="2020-12-09">09.12.2020</time>
-        <a class="article__link" href="article-page.html">
-          <figure class="article__figure">
-            <img src="./img/img-1.jpg" alt="пещера антиматерии">
-            <figcaption class="article__figcaption">
-              <h2 class="article__title">
-                пещера антиматерии: джузеппе «пино» галлицио и
-                технологическое воображаемое раннего ситуационистского интернационала
-              </h2>
-            </figcaption>
-          </figure>
-        </a>
-      </article>
+          <article class="blog__article article">
+            <time class="article__time" datetime="2020-12-09">09.12.2020</time>
+            <a class="article__link" href="article-page.html">
+              <figure class="article__figure">
+                <img src="./img/img-2.jpg" alt="пещера антиматерии">
+                <figcaption class="article__figcaption">
+                  <h2 class="article__title">
+                    пещера антиматерии: джузеппе «пино» галлицио и
+                    технологическое воображаемое раннего ситуационистского интернационала
+                  </h2>
+                </figcaption>
+              </figure>
+            </a>
+          </article>
+
+          <article class="blog__article article">
+            <time class="article__time" datetime="2020-12-09">09.12.2020</time>
+            <a class="article__link" href="article-page.html">
+              <figure class="article__figure">
+                <img src="./img/img-2.jpg" alt="пещера антиматерии">
+                <figcaption class="article__figcaption">
+                  <h2 class="article__title">
+                    пещера антиматерии: джузеппе «пино» галлицио и
+                    технологическое воображаемое раннего ситуационистского интернационала
+                  </h2>
+                </figcaption>
+              </figure>
+            </a>
+          </article>
+
+          <article class="blog__article article">
+            <time class="article__time" datetime="2020-12-09">09.12.2020</time>
+            <a class="article__link" href="article-page.html">
+              <figure class="article__figure">
+                <img src="./img/img-2.jpg" alt="пещера антиматерии">
+                <figcaption class="article__figcaption">
+                  <h2 class="article__title">
+                    пещера антиматерии: джузеппе «пино» галлицио и
+                    технологическое воображаемое раннего ситуационистского интернационала
+                  </h2>
+                </figcaption>
+              </figure>
+            </a>
+          </article>
+        </div>
+      </div>
+
     </main>
 
     <footer class="footer">
