@@ -282,6 +282,7 @@ button {
 
 .search__label {
   position: absolute;
+  pointer-events: none;
   bottom: 7px;
   right: 5px;
 
@@ -535,8 +536,6 @@ button {
 
 // футер подвал сайта ///////////////////////////////////////////////////////////////////////////
 
-.footer {}
-
 .footer__logo {
   @include animation;
   display: block;
@@ -553,8 +552,6 @@ button {
   padding-top: 15px;
   border-top: 1px solid $black;
 }
-
-.info {}
 
 .info__logo {
   @include animation;
@@ -644,12 +641,6 @@ button {
 
 // тело списка статей index.html блог /////////////////////////////////////////////////////////////////////////////
 
-// .blog {
-
-// }
-
-// .blog__article {}
-
 .article {
   margin-bottom: 20px;
   padding-bottom: 6px;
@@ -659,7 +650,6 @@ button {
     .article__figure {
       &::after {
         background-color: #3994fc;
-        // background-color: $blue;
         opacity: 0.6;
       }
     }
@@ -686,9 +676,6 @@ button {
   &.about {
     .article__figure {
       &::after {
-        // background-color: $yellow;
-        // opacity: 0.6;
-        // background-color: rgba(255, 223, 45, 0.6);
         background-color: rgba(255, 200, 30, 0.6);
       }
     }
@@ -753,8 +740,6 @@ button {
     bottom: 0;
     left: 0;
     background-color: rgba(255, 68, 68, 0.6);
-    // background-color: $red;
-    // opacity: 0.6;
     transition: 0.6s;
   }
 }
@@ -812,7 +797,32 @@ button {
   }
 
   .blog {
-    // сначала пишем на флексах
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    .blog__article {
+      width: 153px;
+      height: 110px;
+      margin-right: 20px;
+
+      &:nth-child(2n + 2){
+        margin-right: 0;
+      }
+    }
+    .article__figcaption {
+      height: 70px;
+      overflow: hidden;
+    }
+
+    .article__figure {
+      height: 85%;
+
+      img {
+        height: auto;
+        width: 100%;
+      }
+    }
 
     @supports (display: grid) {
       display: grid;
@@ -830,6 +840,7 @@ button {
 
       .blog__article {
         margin-bottom: 20px;
+        height: auto;
 
         &:nth-child(6n + 1) {
           grid-row: auto /span 4;
@@ -879,14 +890,17 @@ button {
           }
         }
       }
+
     }
   }
 
-  .article {
-    margin-bottom: 0;
+  @supports (display: grid) {
+    .article {
+      margin-bottom: 0;
 
-    .article__figure {
-      height: 100%;
+      .article__figure {
+        height: 100%;
+      }
     }
   }
 }
@@ -901,17 +915,29 @@ button {
   }
 
   .blog {
-    // сначала пишем на флексах
+    .blog__article {
+      width: 151px;
+      height: 110px;
+      margin-right: 20px;
+
+      &:nth-child(2n + 2){
+        margin-right: 20px;
+      }
+
+      &:nth-child(3n + 3){
+        margin-right: 0;
+      }
+    }
 
     @supports (display: grid) {
       display: grid;
-      grid-template-columns: repeat(3, 153px);
+      grid-template-columns: repeat(3, 151px);
       grid-auto-rows: 62px;
       grid-column-gap: 20px;
 
       .blog__article {
         margin-bottom: 20px;
-
+        height: auto;
         &:nth-child(9n + 1) {
           grid-row: auto /span 4;
 
@@ -1024,7 +1050,23 @@ button {
 
   .blog {
     margin-bottom: 50px;
-    // сначала пишем на флексах
+    .blog__article {
+      width: 375px;
+      height: 265px;
+      margin-right: 20px;
+
+      &:nth-child(3n + 3){
+        margin-right: 20px;
+      }
+
+      &:nth-child(2n + 2){
+        margin-right: 0;
+      }
+    }
+
+    .article__figcaption {
+      height: 208px;
+    }
 
     @supports (display: grid) {
       display: grid;
@@ -1034,6 +1076,7 @@ button {
 
       .blog__article {
         margin-bottom: 20px;
+        height: auto;
 
         &:nth-child(6n + 1) {
           grid-row: auto /span 4;
@@ -1119,14 +1162,23 @@ button {
   }
 
   .blog {
-    // сначала пишем на флексах
+    .blog__article {
 
+      &:nth-child(2n + 2){
+        margin-right: 20px;
+      }
+
+      &:nth-child(3n + 3){
+        margin-right: 0;
+      }
+    }
     @supports (display: grid) {
       display: grid;
       grid-template-columns: repeat(3, 375px);
 
       .blog__article {
         margin-bottom: 20px;
+        height: auto;
 
         &:nth-child(9n + 1) {
           grid-row: auto /span 4;
@@ -1423,6 +1475,7 @@ button {
     display: block;
     margin-bottom: 12px;
     padding-right: 25px;
+
     .tags__link {
       text-decoration: none;
     }
@@ -1517,7 +1570,7 @@ button {
     &::before {
       width: 20px;
     }
-    
+
   }
 
   figure {
@@ -1536,7 +1589,7 @@ button {
       transition: 0.6s;
     }
 
-    &:hover{
+    &:hover {
       img {
         opacity: 1;
       }
@@ -1552,6 +1605,7 @@ button {
 
   .article-page__interview {
     @include line-top;
+
     p {}
   }
 
@@ -1677,9 +1731,9 @@ button {
     }
 
     .article-page__note-num {
-    font-size: 18px;
-    line-height: 24px;
-    text-decoration: none;
+      font-size: 18px;
+      line-height: 24px;
+      text-decoration: none;
     }
 
     .article-page__note-popup {
@@ -1694,6 +1748,7 @@ button {
 
     figure {
       margin-right: 0;
+
       img {
         width: 700px;
         height: auto;
@@ -1722,18 +1777,8 @@ button {
         padding-left: 70px;
         padding-right: 50px;
         margin-bottom: 25px;
-        }
       }
-    
+    }
+
   }
 }
-
-////////адаптив/////////////////////////////////
-
-// @media (min-width: $mobile-width-wide) {}
-
-// @media (min-width: $tablet-width) {}
-
-// @media (min-width: $desktop-small-width) {}
-
-// @media (min-width: $desktop-width) {}
