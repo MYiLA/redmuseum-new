@@ -2,6 +2,7 @@
 // растворение .opacity--0
 (function () {
 const headerMenuElement = document.querySelector('.header__menu')
+
 //здесь можно разобраться с дребезжанием
 document.addEventListener('scroll', function () {
   if (document.documentElement.scrollTop <= 1) {
@@ -72,7 +73,6 @@ searchResetElement.addEventListener('click', function () {
 // (выводятся записи, содержащие выбранное значение). После нажатия на значение оно меняет цвет на черный. При повторном нажатии выбор отменяется. 
 // Возможно одновременно выбрать сколько угодно значений.
 
-
 tagsLinkElements.forEach(element => {
   element.addEventListener('click', function () {
     element.classList.add('active')
@@ -83,15 +83,6 @@ tagsLinkElements.forEach(element => {
 const notesNumArr = [... document.querySelectorAll('.article-page__note-num')];
 const notesPopupArr = [... document.querySelectorAll('.article-page__note-popup')];
 const notesPopupCloseArr = document.querySelectorAll('.article-page__note-close');
-
-// .article-page__note-num кнопки-ссылки
-// article-page__note-popup active попап активный
-// article-page__note-close внутри попапа кнопка закрытия
-// setTimeout(function () {
-//   tagsElement.classList.add('opacity--0');
-// }, 0);
-
-
 
 const closePopup = function(popup) {
   setTimeout(function () {
