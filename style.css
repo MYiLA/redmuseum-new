@@ -969,7 +969,8 @@ button {
   font-family: "Aestetika", Arial, sans-serif;
   color: #0481c3;
   font-size: 12px;
-  line-height: 12px; }
+  line-height: 12px;
+  text-decoration: none; }
   .article-page .article-page__note-num:hover, .article-page .article-page__note-num:active, .article-page .article-page__note-num:focus {
     opacity: 1; }
 
@@ -1063,7 +1064,12 @@ button {
       width: 60%; } }
   .article-page figure img {
     width: 100%;
-    height: auto; }
+    height: auto;
+    opacity: 0.2;
+    -webkit-transition: 0.6s;
+    transition: 0.6s; }
+  .article-page figure:hover img {
+    opacity: 1; }
 
 .article-page figcaption {
   margin: 0;
@@ -1162,6 +1168,8 @@ button {
     .article-page .article-page__tags .tags__link {
       font-size: 18px;
       line-height: 24px; }
+  .article-page .article-page__preface p {
+    margin-left: 0; }
   .article-page blockquote {
     margin-bottom: 30px;
     padding-right: 50px; }
