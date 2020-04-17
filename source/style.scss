@@ -24,7 +24,7 @@ $purple: #6f5cad;
 // миксины mixins ////////////////////////////////////////////////////////////////////
 
 @mixin animation {
-  transition: 0.4s;
+  transition: 0.6s;
 
   &:hover {
     outline: none;
@@ -57,7 +57,7 @@ $purple: #6f5cad;
   color: $black;
   font-family: $font-main;
   font-size: $size;
-  font-weight: 500;
+  font-weight: 300;
   line-height: $line;
 }
 
@@ -110,6 +110,47 @@ $purple: #6f5cad;
   }
 }
 
+@mixin line-bottom {
+  position: relative;
+  padding-bottom: 15px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50%;
+    height: 1px;
+    background-color: $black;
+  }
+
+  @media (min-width: $desktop-small-width) {
+    &::after {
+      width: 60%;
+    }
+  }
+}
+
+@mixin line-top {
+  position: relative;
+  padding-top: 15px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 1px;
+    background-color: $black;
+  }
+
+  @media (min-width: $desktop-small-width) {
+    &::before {
+      width: 60%;
+    }
+  }
+}
 
 // блоки/blocks ////////////////////////////////////////////////////////////////////////
 
@@ -248,7 +289,7 @@ button {
   font-size: 10px;
   line-height: 10px;
   font-weight: 700;
-  transition: 0.4s;
+  transition: 0.6s;
 }
 
 .search__input {
@@ -296,7 +337,7 @@ button {
   right: 0;
   opacity: 0;
   pointer-events: none;
-  transition: 0.4s;
+  transition: 0.6s;
 }
 
 .header__lang {
@@ -312,7 +353,7 @@ button {
   font-family: $font-accent;
   color: $black;
 
-  transition: 0.4s;
+  transition: 0.6s;
 
   &:hover {
     color: $red;
@@ -321,12 +362,13 @@ button {
 
 .header__tags {
   margin-bottom: 20px;
-  transition: 0.4s;
+  transition: 0.6s;
 }
 
 .tags {
   display: none;
   transition: 0.4;
+
   &.active {
     display: block;
   }
@@ -379,7 +421,7 @@ button {
 
   span {
     color: $red;
-    transition: 0.4s;
+    transition: 0.6s;
   }
 
   &.active {
@@ -713,7 +755,7 @@ button {
     background-color: rgba(255, 68, 68, 0.6);
     // background-color: $red;
     // opacity: 0.6;
-    transition: 0.4s;
+    transition: 0.6s;
   }
 }
 
@@ -724,7 +766,7 @@ button {
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 12px;
-  transition: 0.4s;
+  transition: 0.6s;
 }
 
 .article__author {
@@ -777,6 +819,14 @@ button {
       grid-template-columns: repeat(2, 153px);
       grid-auto-rows: 62px;
       grid-column-gap: 20px;
+
+      .article__figure {
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
 
       .blog__article {
         margin-bottom: 20px;
@@ -1194,14 +1244,23 @@ button {
 /////////////// Шаринг ////////////////
 
 .sharing {
+  width: 100%;
   position: fixed;
-  right: 25px;
-  bottom: 30px;
+  pointer-events: none;
+
+  margin-left: auto;
+  margin-right: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .sharing__list {
+  pointer-events: auto;
+  width: 22px;
   list-style: none;
   margin: 0;
+  margin-left: auto;
+  margin-right: 0;
   margin-bottom: 20px;
   padding: 0;
 }
@@ -1212,13 +1271,14 @@ button {
 
 .sharing__link {
   @include animation();
-  img {}
 }
-
 
 .sharing__link-arrow {
   @include animation();
+  pointer-events: auto;
   margin: 0;
+  margin-left: auto;
+  margin-right: 5px;
   padding: 0;
   display: block;
   width: 15px;
@@ -1227,38 +1287,441 @@ button {
   border-bottom: none;
   border-right: none;
   transform: translateX(3px) rotate(45deg);
-
 }
 
-// статья article.html /////////////////////////////////////////////////////////////////////////////
+@media (min-width: $desktop-small-width) {
+  .sharing__list {
+    width: 40px;
+    margin-bottom: 50px;
+  }
+
+  .sharing__item {
+    margin-bottom: 30px;
+  }
+
+  .sharing__link {
+    width: 40px;
+    height: 40px;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .sharing__link-arrow {
+    margin-right: 12px;
+    display: block;
+    width: 20px;
+    height: 20px;
+    transform: translateX(3px) rotate(45deg);
+  }
+}
+
+
+
+
+
+
+// article.html /////////////////////////////////////////////////////////////////////////////
+
 .article-page {
-  // color: $red;
-  // &.grant {
-  //   color: $blue;
-  // }
 
-  // &.project {
-  //   color: $green;
-  // }
+  .article-page__author-link,
+  h1,
+  .article-page__caption {
+    color: $red;
+  }
 
-  // &.book {
-  //   color: $purple;
-  // }
+  &.grant {
 
-  // &.about {
-  //   color: $yellow;
-  // }
+    .article-page__author-link,
+    h1,
+    .article-page__caption {
+      color: $blue;
+    }
+  }
+
+  &.project {
+
+    .article-page__author-link,
+    h1,
+    .article-page__caption {
+      color: $green;
+    }
+  }
+
+  &.book {
+
+    .article-page__author-link,
+    h1,
+    .article-page__caption {
+      color: $purple;
+    }
+  }
+
+  &.about {
+
+    .article-page__author-link,
+    h1,
+    .article-page__caption {
+      color: $yellow;
+    }
+  }
+
+  a {
+    @include animation;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    line-height: 18px;
+    text-decoration: underline;
+  }
+
+  p {
+    margin: 0;
+    margin-bottom: 20px;
+    padding: 0;
+    padding-right: 25px;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .article-page__author-link {
+    display: block;
+    margin: 0;
+    padding: 0;
+    padding-right: 25px;
+    margin-bottom: 5px;
+    text-decoration: none;
+  }
+
+  .article-page__author {
+    margin: 0;
+    padding: 0;
+    padding-right: 25px;
+    font-family: $font-accent;
+    font-size: 22px;
+    line-height: 16px;
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  h1 {
+    margin: 0;
+    padding: 0;
+    padding-right: 25px;
+    font-style: normal;
+    font-weight: 700;
+    font-family: $font-accent;
+    font-size: 30px;
+    line-height: 22px;
+    margin-bottom: 12px;
+  }
+
+  .article-page__tags {
+    display: block;
+    margin-bottom: 12px;
+    padding-right: 25px;
+    .tags__link {
+      text-decoration: none;
+    }
+  }
+
+  .article-page__preface {
+    @include line-bottom;
+    margin-bottom: 15px;
+
+    p {
+      &:nth-last-child(1) {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  blockquote {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 15px;
+    font-style: italic;
+
+    p {
+      margin-bottom: 10px;
+    }
+  }
+
+  cite {
+    display: block;
+    text-align: right;
+    font-size: 14px;
+    line-height: 18px;
+    font-style: normal;
+    padding-right: 25px;
+
+  }
+
+  .article-page__caption {
+    @include line-top;
+    @include line-bottom;
+    margin-bottom: 15px;
+    padding-right: 25px;
+    font-family: $font-accent;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 17px;
+  }
+
+  .article-page__note-num {
+    position: relative;
+    font-family: $font-accent;
+    color: #0481c3;
+    font-size: 12px;
+    line-height: 12px;
+
+    &:hover,
+    &:active,
+    &:focus {
+      opacity: 1;
+    }
+  }
+
+  .article-page__note-popup {
+    display: none;
+    width: 270px;
+    padding: 10px;
+    padding-right: 35px;
+    border: 1px solid $black;
+    position: absolute;
+    top: 17px;
+
+    font-family: $font-main;
+    color: $black;
+    font-size: 12px;
+    line-height: 15px;
+    background-color: $white;
+    transition: 0.6s;
+
+    &.active {
+      display: block;
+    }
+  }
+
+  .article-page__note-close {
+    @include close-btn;
+    position: absolute;
+    top: 7px;
+    right: 11px;
+
+    &::after,
+    &::before {
+      width: 20px;
+    }
+  }
+
+  figure {
+    @include line-top;
+    @include line-bottom;
+    margin: 0;
+    margin-right: 25px;
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 15px;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  figcaption {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .article-page__interview {
+    @include line-top;
+    p {}
+  }
+
+  .article-page__interview-name {
+    font-size: 12px;
+    line-height: 16px;
+    margin-right: 10px;
+    font-family: $font-accent;
+    font-weight: 700;
+    text-transform: lowercase;
+  }
+
+  .article-page__note {
+    @include line-top;
+  }
+
+  ol {
+    counter-reset: num;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    padding-right: 25px;
+    font-size: 12px;
+    line-height: 15px;
+
+    li {
+      position: relative;
+      padding-left: 30px;
+      margin-bottom: 15px;
+
+      &::after {
+        content: counter(num) '.';
+        position: absolute;
+        top: 0;
+
+        left: 0;
+
+        counter-increment: num;
+      }
+    }
+  }
 }
 
+@media (min-width: $mobile-width-wide) {
+  .article-page {
+    .article-page__note-popup {
+      width: 325px;
+    }
+  }
+}
 
+@media (min-width: $desktop-small-width) {
+  .article-page {
+    a {
+      font-size: 22px;
+      line-height: 30px;
+    }
 
+    p {
+      margin-bottom: 30px;
+      margin-left: 200px;
+      padding-right: 50px;
+      font-size: 22px;
+      line-height: 30px;
+    }
+
+    .article-page__author-link {
+      margin-bottom: -5px;
+    }
+
+    .article-page__author {
+      font-size: 40px;
+      line-height: 44px;
+      padding-right: 50px;
+    }
+
+    h1 {
+      font-size: 80px;
+      line-height: 60px;
+      padding-right: 50px;
+      margin-bottom: 30px;
+    }
+
+    .article-page__tags {
+      display: block;
+      margin-bottom: 20px;
+      padding-bottom: 0;
+      padding-right: 50px;
+      border: none;
+
+      .tags__link {
+        font-size: 18px;
+        line-height: 24px;
+      }
+    }
+
+    blockquote {
+      margin-bottom: 30px;
+      padding-right: 50px;
+
+      p {
+        margin-bottom: 25px;
+      }
+    }
+
+    cite {
+      font-size: 22px;
+      line-height: 30px;
+      padding-right: 50px;
+    }
+
+    .article-page__caption {
+      margin-bottom: 15px;
+      padding-bottom: 23px;
+      font-size: 40px;
+      line-height: 31px;
+    }
+
+    .article-page__note-num {
+    font-size: 18px;
+    line-height: 24px;
+    text-decoration: none;
+    }
+
+    .article-page__note-popup {
+      width: 450px;
+      padding: 15px;
+      padding-right: 30px;
+      top: 25px;
+
+      font-size: 18px;
+      line-height: 24px;
+    }
+
+    figure {
+      margin-right: 0;
+      img {
+        width: 700px;
+        height: auto;
+        margin-bottom: 5px;
+      }
+    }
+
+    figcaption {
+      font-size: 18px;
+      line-height: 24px;
+    }
+
+    .article-page__interview-name {
+      font-size: 18px;
+      line-height: 24px;
+      margin-right: 15px;
+    }
+
+    ol {
+      margin-left: 200px;
+      font-size: 18px;
+      line-height: 24px;
+
+      li {
+        position: relative;
+        padding-left: 70px;
+        padding-right: 50px;
+        margin-bottom: 25px;
+        }
+      }
+    
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .article-page {}
+}
 
 ////////адаптив/////////////////////////////////
 
-@media (min-width: $mobile-width-wide) {}
+// @media (min-width: $mobile-width-wide) {}
 
-@media (min-width: $tablet-width) {}
+// @media (min-width: $tablet-width) {}
 
-@media (min-width: $desktop-small-width) {}
+// @media (min-width: $desktop-small-width) {}
 
-@media (min-width: $desktop-width) {}
+// @media (min-width: $desktop-width) {}
