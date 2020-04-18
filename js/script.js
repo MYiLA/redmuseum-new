@@ -56,7 +56,7 @@ searchResetElement.addEventListener('click', function () {
 
 tagsLinkElements.forEach(element => {
   element.addEventListener('click', function () {
-    element.classList.add('active')
+    element.classList.toggle('active')
   })
 })
 
