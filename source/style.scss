@@ -9,8 +9,8 @@ sans-serif;
 $mobile-width: 320px;
 $mobile-width-wide: 374px;
 $tablet-width: 550px;
-$desktop-small-width: 790px;
-$desktop-width: 1200px;
+$desktop-small-width: 900px;
+$desktop-width: 1300px;
 $retina-dpi: 144dpi;
 $retina-dppx: 1.5dppx;
 $white: #fdfdfd;
@@ -213,11 +213,11 @@ button {
   padding-top: 20px;
   padding-bottom: 20px;
   padding-left: 25px;
-  padding-right: 25px;
+  padding-right: 30px;
 }
 
 .header__wrap-fixed {
-  min-height: 27px;
+  min-height: 60px;
 }
 
 .header__menu {
@@ -323,11 +323,6 @@ button {
       opacity: 0;
       pointer-events: none;
     }
-
-    &~.search__reset {
-      opacity: 1;
-      pointer-events: auto;
-    }
   }
 }
 
@@ -339,6 +334,10 @@ button {
   opacity: 0;
   pointer-events: none;
   transition: 0.6s;
+  &.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
 }
 
 .header__lang {
@@ -362,24 +361,25 @@ button {
 }
 
 .header__tags {
-  margin-bottom: 20px;
-  transition: 0.6s;
+  overflow: hidden;
+  max-height: 0;
+  transition: 1.5s;
+  &.active {
+    max-height: 1000px;
+    transition: max-height 4s, margin-bottom 1s;
+  }
 }
 
 .tags {
-  display: none;
+  display: block;
   transition: 0.4;
-
-  &.active {
-    display: block;
-  }
 }
 
 .tags__list {
   margin: 0;
   padding: 0;
   list-style: none;
-
+  margin-bottom: 20px;
 }
 
 .tags__item {
@@ -453,6 +453,10 @@ button {
 }
 
 @media (min-width: $desktop-small-width) {
+  .header__wrap-fixed {
+    min-height: 116px;
+  }
+
   .header__menu {
     margin-bottom: 30px;
 
@@ -490,8 +494,10 @@ button {
   }
 
   .search__reset {
-    bottom: 14px;
-    right: 28px;
+    width: 30px;
+    height: 30px;
+    bottom: 8px;
+    right: 15px;
 
     &::before,
     &::after {
@@ -499,16 +505,30 @@ button {
     }
   }
 
+  .header__tags {
+    transition: 2s;
+    &.active {
+      .tags__list {
+        padding-bottom: 30px;
+        margin-bottom: 30px;
+        border-bottom: 1px solid $black;
+      }
+    }
+  }
+
   .tags {
-    padding-bottom: 30px;
-    margin-bottom: 30px;
-    border-bottom: 1px solid $black;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  .tags__list {
+    transition: 2s;
+    border-bottom: 1px solid transparent;
   }
 
   .tags__link {
     font-size: 18px;
     line-height: 25px;
-
   }
 }
 
@@ -530,10 +550,6 @@ button {
 
 
 
-
-
-
-
 // футер подвал сайта ///////////////////////////////////////////////////////////////////////////
 
 .footer__logo {
@@ -548,6 +564,7 @@ button {
 .footer__info {
   text-align: center;
   margin-left: 40px;
+  margin-right: 25px;
   margin-top: -18px;
   padding-top: 15px;
   border-top: 1px solid $black;
@@ -632,10 +649,6 @@ button {
     line-height: 24px;
   }
 }
-
-
-
-
 
 
 
@@ -1312,13 +1325,13 @@ button {
   list-style: none;
   margin: 0;
   margin-left: auto;
-  margin-right: 0;
-  margin-bottom: 20px;
+  margin-right: -15px;
+  margin-bottom: 15px;
   padding: 0;
 }
 
 .sharing__item {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .sharing__link {
@@ -1326,11 +1339,11 @@ button {
 }
 
 .sharing__link-arrow {
-  @include animation();
-  pointer-events: auto;
+  opacity: 0;
+
   margin: 0;
   margin-left: auto;
-  margin-right: 5px;
+  margin-right: -8px;
   padding: 0;
   display: block;
   width: 15px;
@@ -1339,16 +1352,25 @@ button {
   border-bottom: none;
   border-right: none;
   transform: translateX(3px) rotate(45deg);
+  transition: 0.6s;
+
+  &.active {
+    @include animation();
+    opacity: 1;
+    cursor: pointer;
+    pointer-events: auto;
+  }
 }
 
 @media (min-width: $desktop-small-width) {
   .sharing__list {
     width: 40px;
-    margin-bottom: 50px;
+    margin-bottom: 35px;
+    margin-right: -40px;
   }
 
   .sharing__item {
-    margin-bottom: 30px;
+    margin-bottom: 15px;
   }
 
   .sharing__link {
@@ -1362,16 +1384,13 @@ button {
   }
 
   .sharing__link-arrow {
-    margin-right: 12px;
+    margin-right: -26px;
     display: block;
     width: 20px;
     height: 20px;
     transform: translateX(3px) rotate(45deg);
   }
 }
-
-
-
 
 
 
@@ -1570,7 +1589,6 @@ button {
     &::before {
       width: 20px;
     }
-
   }
 
   figure {
@@ -1585,14 +1603,7 @@ button {
     img {
       width: 100%;
       height: auto;
-      opacity: 0.2;
       transition: 0.6s;
-    }
-
-    &:hover {
-      img {
-        opacity: 1;
-      }
     }
   }
 
@@ -1605,8 +1616,6 @@ button {
 
   .article-page__interview {
     @include line-top;
-
-    p {}
   }
 
   .article-page__interview-name {
@@ -1620,6 +1629,7 @@ button {
 
   .article-page__note {
     @include line-top;
+    padding-top: 22px;
   }
 
   ol {
@@ -1767,6 +1777,10 @@ button {
       margin-right: 15px;
     }
 
+    .article-page__note {
+      padding-top: 35px;
+    }
+
     ol {
       margin-left: 200px;
       font-size: 18px;
@@ -1779,6 +1793,35 @@ button {
         margin-bottom: 25px;
       }
     }
+  }
+}
 
+@media (min-width: $desktop-width) {
+  figure {
+    margin-right: 0;
+
+    &.large {
+      img {
+        width: 1150px;
+      }
+    }
+
+    &.small {
+      img {
+        width: 700px;
+      }
+    }
+
+    &.medium {
+      img {
+        width: 944px;
+      }
+    }
+
+    img {
+      width: 700px;
+      height: auto;
+      margin-bottom: 5px;
+    }
   }
 }
