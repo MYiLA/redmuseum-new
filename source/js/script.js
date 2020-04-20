@@ -30,26 +30,29 @@ for (var i = 0; i < linkNav.length; i++) {
 // При нажатии на "поиск и категории" 
 // появляется строка поиска и разворачивается облако категорий и тегов.
 
-const tagsElement = document.querySelector('.header__tags')
-const searchInputElement = document.querySelector('.search__input')
-const searchLabelElement = document.querySelector('.search__label')
-const tagsLinkElements = document.querySelectorAll('.tags__link');
-const searchResetElement = document.querySelector('.search__reset')
+const tagsElement = document.querySelector('.header__tags');
+const tagsLinkElements = document.querySelectorAll('.header__tags .tags__link');
+
+const searchInputElement = document.querySelector('.search__input');
+const searchLabelElement = document.querySelector('.search__label');
+const searchResetElement = document.querySelector('.search__reset');
+
+
 
 searchInputElement.addEventListener('click', function () {
   tagsElement.classList.add('active');
   searchResetElement.classList.add('active');
   searchLabelElement.classList.add('opacity--0');
-})
+});
 
 searchResetElement.addEventListener('click', function () {
     tagsElement.classList.remove('active');
     searchLabelElement.classList.remove('opacity--0');
     searchResetElement.classList.remove('active');
     tagsLinkElements.forEach(element => {
-      element.classList.remove('active')
+      element.classList.remove('active');
     })
-})
+});
 
 // Категории / теги : После нажатия на значение оно меняет цвет на черный. При повторном нажатии выбор отменяется. 
 // Возможно одновременно выбрать сколько угодно значений.

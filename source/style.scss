@@ -507,13 +507,6 @@ button {
 
   .header__tags {
     transition: 2s;
-    &.active {
-      .tags__list {
-        padding-bottom: 30px;
-        margin-bottom: 30px;
-        border-bottom: 1px solid $black;
-      }
-    }
   }
 
   .tags {
@@ -524,6 +517,9 @@ button {
   .tags__list {
     transition: 2s;
     border-bottom: 1px solid transparent;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid $black;
   }
 
   .tags__link {
@@ -1497,6 +1493,9 @@ button {
 
     .tags__link {
       text-decoration: none;
+      &:hover, &:active, &:focus {
+        opacity: 1;
+      }
     }
   }
 
