@@ -363,10 +363,10 @@ button {
 .header__tags {
   overflow: hidden;
   max-height: 0;
-  transition: 1.5s;
+  transition: 1.5s linear;
   &.active {
     max-height: 1000px;
-    transition: max-height 4s, margin-bottom 1s;
+    transition: max-height 4s linear;
   }
 }
 
