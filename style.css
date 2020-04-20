@@ -970,6 +970,8 @@ button {
     text-decoration: none; }
     .article-page .article-page__tags .tags__link:hover, .article-page .article-page__tags .tags__link:active, .article-page .article-page__tags .tags__link:focus {
       opacity: 1; }
+      .article-page .article-page__tags .tags__link:hover span, .article-page .article-page__tags .tags__link:active span, .article-page .article-page__tags .tags__link:focus span {
+        color: black; }
 
 .article-page .article-page__preface {
   position: relative;
