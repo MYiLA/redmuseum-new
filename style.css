@@ -317,17 +317,16 @@ button {
   .header__tags {
     -webkit-transition: 2s;
     transition: 2s; }
-    .header__tags.active .tags__list {
-      padding-bottom: 30px;
-      margin-bottom: 30px;
-      border-bottom: 1px solid black; }
   .tags {
     padding-bottom: 0;
     margin-bottom: 0; }
   .tags__list {
     -webkit-transition: 2s;
     transition: 2s;
-    border-bottom: 1px solid transparent; }
+    border-bottom: 1px solid transparent;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid black; }
   .tags__link {
     font-size: 18px;
     line-height: 25px; } }
@@ -969,6 +968,8 @@ button {
   padding-right: 25px; }
   .article-page .article-page__tags .tags__link {
     text-decoration: none; }
+    .article-page .article-page__tags .tags__link:hover, .article-page .article-page__tags .tags__link:active, .article-page .article-page__tags .tags__link:focus {
+      opacity: 1; }
 
 .article-page .article-page__preface {
   position: relative;
