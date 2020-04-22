@@ -112,7 +112,8 @@ $purple: #6f5cad;
 
 @mixin line-bottom {
   position: relative;
-  padding-bottom: 15px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
 
   &::after {
     content: '';
@@ -124,9 +125,25 @@ $purple: #6f5cad;
     background-color: $black;
   }
 
+  &:nth-last-child(1) {
+    padding-bottom: 0;
+    margin-bottom: 0;
+
+    &::after {
+      content: none;
+    }
+  }
+
   @media (min-width: $desktop-small-width) {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
     &::after {
       width: 60%;
+    }
+
+    &:nth-last-child(1) {
+      padding-bottom: 0;
+      margin-bottom: 0;
     }
   }
 }
@@ -334,6 +351,7 @@ button {
   opacity: 0;
   pointer-events: none;
   transition: 0.6s;
+
   &.active {
     opacity: 1;
     pointer-events: auto;
@@ -364,6 +382,7 @@ button {
   overflow: hidden;
   max-height: 0;
   transition: 1.5s linear;
+
   &.active {
     max-height: 1000px;
     transition: max-height 4s linear;
@@ -815,10 +834,11 @@ button {
       height: 110px;
       margin-right: 20px;
 
-      &:nth-child(2n + 2){
+      &:nth-child(2n + 2) {
         margin-right: 0;
       }
     }
+
     .article__figcaption {
       height: 70px;
       overflow: hidden;
@@ -929,11 +949,11 @@ button {
       height: 110px;
       margin-right: 20px;
 
-      &:nth-child(2n + 2){
+      &:nth-child(2n + 2) {
         margin-right: 20px;
       }
 
-      &:nth-child(3n + 3){
+      &:nth-child(3n + 3) {
         margin-right: 0;
       }
     }
@@ -947,6 +967,7 @@ button {
       .blog__article {
         margin-bottom: 20px;
         height: auto;
+
         &:nth-child(9n + 1) {
           grid-row: auto /span 4;
 
@@ -1059,16 +1080,17 @@ button {
 
   .blog {
     margin-bottom: 50px;
+
     .blog__article {
       width: 375px;
       height: 265px;
       margin-right: 20px;
 
-      &:nth-child(3n + 3){
+      &:nth-child(3n + 3) {
         margin-right: 20px;
       }
 
-      &:nth-child(2n + 2){
+      &:nth-child(2n + 2) {
         margin-right: 0;
       }
     }
@@ -1173,14 +1195,15 @@ button {
   .blog {
     .blog__article {
 
-      &:nth-child(2n + 2){
+      &:nth-child(2n + 2) {
         margin-right: 20px;
       }
 
-      &:nth-child(3n + 3){
+      &:nth-child(3n + 3) {
         margin-right: 0;
       }
     }
+
     @supports (display: grid) {
       display: grid;
       grid-template-columns: repeat(3, 375px);
@@ -1445,15 +1468,6 @@ button {
     text-decoration: underline;
   }
 
-  p {
-    margin: 0;
-    margin-bottom: 20px;
-    padding: 0;
-    padding-right: 25px;
-    font-size: 14px;
-    line-height: 18px;
-  }
-
   .article-page__author-link {
     display: block;
     margin: 0;
@@ -1463,15 +1477,16 @@ button {
     text-decoration: none;
   }
 
-  .article-page__author {
+  p {
     margin: 0;
+    margin-bottom: 20px;
     padding: 0;
     padding-right: 25px;
-    font-family: $font-accent;
-    font-size: 22px;
-    line-height: 16px;
-    font-weight: 700;
-    font-style: normal;
+    font-size: 14px;
+    line-height: 18px;
+    &:nth-last-child(1) {
+      margin-bottom: 0;
+    }
   }
 
   h1 {
@@ -1483,34 +1498,11 @@ button {
     font-family: $font-accent;
     font-size: 30px;
     line-height: 22px;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
 
-  .article-page__tags {
-    display: block;
-    margin-bottom: 12px;
-    padding-right: 25px;
-
-    .tags__link {
-      text-decoration: none;
-      &:hover, &:active, &:focus {
-        opacity: 1;
-        span {
-          color: $black;
-        }
-      }
-    }
-  }
-
-  .article-page__preface {
-    @include line-bottom;
+  .tags__list {
     margin-bottom: 15px;
-
-    p {
-      &:nth-last-child(1) {
-        margin-bottom: 0;
-      }
-    }
   }
 
   blockquote {
@@ -1521,6 +1513,10 @@ button {
 
     p {
       margin-bottom: 10px;
+
+      &:nth-last-child(1) {
+        margin-bottom: 0;
+      }
     }
   }
 
@@ -1531,76 +1527,15 @@ button {
     line-height: 18px;
     font-style: normal;
     padding-right: 25px;
-
-  }
-
-  .article-page__caption {
-    @include line-top;
-    @include line-bottom;
-    margin-bottom: 15px;
-    padding-right: 25px;
-    font-family: $font-accent;
-    font-weight: 700;
-    font-size: 22px;
-    line-height: 17px;
-  }
-
-  .article-page__note-num {
-    position: relative;
-    font-family: $font-accent;
-    color: #0481c3;
-    font-size: 12px;
-    line-height: 12px;
-    text-decoration: none;
-
-    &:hover,
-    &:active,
-    &:focus {
-      opacity: 1;
-    }
-  }
-
-  .article-page__note-popup {
-    display: none;
-    width: 270px;
-    padding: 10px;
-    padding-right: 35px;
-    border: 1px solid $black;
-    position: absolute;
-    top: 17px;
-
-    font-family: $font-main;
-    color: $black;
-    font-size: 12px;
-    line-height: 15px;
-    background-color: $white;
-    transition: 0.6s;
-
-    &.active {
-      display: block;
-    }
-  }
-
-  .article-page__note-close {
-    @include close-btn;
-    position: absolute;
-    top: 7px;
-    right: 11px;
-
-    &::after,
-    &::before {
-      width: 20px;
-    }
   }
 
   figure {
-    @include line-top;
-    @include line-bottom;
     margin: 0;
+    @include line-bottom;
+    padding-top: 5px;
     margin-right: 25px;
     padding-left: 0;
     padding-right: 0;
-    margin-bottom: 15px;
 
     img {
       width: 100%;
@@ -1612,26 +1547,9 @@ button {
   figcaption {
     margin: 0;
     padding: 0;
+    padding-top: 5px;
     font-size: 12px;
     line-height: 16px;
-  }
-
-  .article-page__interview {
-    @include line-top;
-  }
-
-  .article-page__interview-name {
-    font-size: 12px;
-    line-height: 16px;
-    margin-right: 10px;
-    font-family: $font-accent;
-    font-weight: 700;
-    text-transform: lowercase;
-  }
-
-  .article-page__note {
-    @include line-top;
-    padding-top: 22px;
   }
 
   ol {
@@ -1661,6 +1579,136 @@ button {
   }
 }
 
+.article-page__main-text {
+  @include line-bottom;
+}
+
+.article-page__author {
+  margin: 0;
+  padding: 0;
+  padding-right: 25px;
+  font-family: $font-accent;
+  font-size: 22px;
+  line-height: 16px;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.article-page__tags {
+  display: block;
+  margin-bottom: 10px;
+  padding-right: 25px;
+
+  .tags__list {
+    margin-bottom: 0;
+  }
+
+  .tags__link {
+    text-decoration: none;
+
+    &:hover,
+    &:active,
+    &:focus {
+      opacity: 1;
+
+      span {
+        color: $black;
+      }
+    }
+  }
+}
+
+.article-page__preface {
+  @include line-bottom;
+
+  p {
+    &:nth-last-child(1) {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.article-page__caption {
+  @include line-bottom;
+  padding-right: 25px;
+  font-family: $font-accent;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 17px;
+}
+
+.article-page__note {
+  @include line-bottom;
+  padding-top: 0;
+}
+
+.article-page__note-num {
+  position: relative;
+  font-family: $font-accent;
+  color: #0481c3;
+  font-size: 12px;
+  line-height: 12px;
+  text-decoration: none;
+
+  &:hover,
+  &:active,
+  &:focus {
+    opacity: 1;
+  }
+}
+
+.article-page__note-popup {
+  display: none;
+  width: 270px;
+  padding: 10px;
+  padding-right: 35px;
+  border: 1px solid $black;
+  position: absolute;
+  top: 17px;
+
+  font-family: $font-main;
+  color: $black;
+  font-size: 12px;
+  line-height: 15px;
+  background-color: $white;
+  transition: 0.6s;
+
+  &.active {
+    display: block;
+  }
+}
+
+.article-page__note-close {
+  @include close-btn;
+  position: absolute;
+  top: 7px;
+  right: 11px;
+
+  &::after,
+  &::before {
+    width: 20px;
+  }
+}
+
+.article-page__interview {
+  @include line-bottom;
+
+  p {
+    &:nth-last-child(1) {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.article-page__interview-name {
+  font-size: 12px;
+  line-height: 16px;
+  margin-right: 10px;
+  font-family: $font-accent;
+  font-weight: 700;
+  text-transform: lowercase;
+}
+
 @media (min-width: $mobile-width-wide) {
   .article-page {
     .article-page__note-popup {
@@ -1671,6 +1719,8 @@ button {
 
 @media (min-width: $desktop-small-width) {
   .article-page {
+    margin-bottom: 65px;
+
     a {
       font-size: 22px;
       line-height: 30px;
@@ -1682,16 +1732,10 @@ button {
       padding-right: 50px;
       font-size: 22px;
       line-height: 30px;
-    }
 
-    .article-page__author-link {
-      margin-bottom: -5px;
-    }
-
-    .article-page__author {
-      font-size: 40px;
-      line-height: 44px;
-      padding-right: 50px;
+      &:nth-last-child(1) {
+        margin-bottom: 0;
+      }
     }
 
     h1 {
@@ -1699,25 +1743,6 @@ button {
       line-height: 60px;
       padding-right: 50px;
       margin-bottom: 30px;
-    }
-
-    .article-page__tags {
-      display: block;
-      margin-bottom: 20px;
-      padding-bottom: 0;
-      padding-right: 50px;
-      border: none;
-
-      .tags__link {
-        font-size: 18px;
-        line-height: 24px;
-      }
-    }
-
-    .article-page__preface {
-      p {
-        margin-left: 0;
-      }
     }
 
     blockquote {
@@ -1735,30 +1760,8 @@ button {
       padding-right: 50px;
     }
 
-    .article-page__caption {
-      margin-bottom: 15px;
-      padding-bottom: 23px;
-      font-size: 40px;
-      line-height: 31px;
-    }
-
-    .article-page__note-num {
-      font-size: 18px;
-      line-height: 24px;
-      text-decoration: none;
-    }
-
-    .article-page__note-popup {
-      width: 450px;
-      padding: 15px;
-      padding-right: 30px;
-      top: 25px;
-
-      font-size: 18px;
-      line-height: 24px;
-    }
-
     figure {
+      padding-top: 5px;
       margin-right: 0;
 
       img {
@@ -1771,16 +1774,6 @@ button {
     figcaption {
       font-size: 18px;
       line-height: 24px;
-    }
-
-    .article-page__interview-name {
-      font-size: 18px;
-      line-height: 24px;
-      margin-right: 15px;
-    }
-
-    .article-page__note {
-      padding-top: 35px;
     }
 
     ol {
@@ -1796,34 +1789,107 @@ button {
       }
     }
   }
+
+  .article-page__author-link {
+    margin-bottom: -5px;
+  }
+
+  .article-page__author {
+    font-size: 40px;
+    line-height: 44px;
+    padding-right: 50px;
+  }
+
+  .article-page__tags {
+    display: block;
+    margin-bottom: 20px;
+    padding-bottom: 0;
+    padding-right: 50px;
+    border: none;
+
+    .tags__list {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .tags__link {
+      font-size: 18px;
+      line-height: 24px;
+    }
+  }
+
+  .article-page__preface {
+    p {
+      margin-left: 0;
+    }
+  }
+
+  .article-page__caption {
+    margin-bottom: 15px;
+    padding-bottom: 23px;
+    font-size: 40px;
+    line-height: 31px;
+  }
+
+  .article-page__note-num {
+    font-size: 18px;
+    line-height: 24px;
+    text-decoration: none;
+  }
+
+  .article-page__note-popup {
+    width: 450px;
+    padding: 15px;
+    padding-right: 30px;
+    top: 25px;
+
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .article-page__interview-name {
+    font-size: 18px;
+    line-height: 24px;
+    margin-right: 15px;
+  }
+
+  .article-page__note {
+    padding-top: 0;
+  }
+
+  .article-page__main-text {
+    margin-bottom: 15px;
+  }
 }
 
 @media (min-width: $desktop-width) {
-  figure {
-    margin-right: 0;
+  .article-page {
+    figure {
+      margin-right: 0;
 
-    &.large {
-      img {
-        width: 1150px;
+      &.large {
+        img {
+          width: 1150px;
+        }
       }
-    }
 
-    &.small {
+      &.small {
+        img {
+          width: 700px;
+        }
+      }
+
+      &.medium {
+        img {
+          width: 944px;
+        }
+      }
+
       img {
         width: 700px;
+        height: auto;
+        margin-bottom: 10px;
       }
-    }
-
-    &.medium {
-      img {
-        width: 944px;
-      }
-    }
-
-    img {
-      width: 700px;
-      height: auto;
-      margin-bottom: 5px;
     }
   }
 }
