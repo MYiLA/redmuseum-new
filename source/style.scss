@@ -137,6 +137,7 @@ $purple: #6f5cad;
   @media (min-width: $desktop-small-width) {
     padding-bottom: 15px;
     margin-bottom: 15px;
+
     &::after {
       width: 60%;
     }
@@ -1484,6 +1485,7 @@ button {
     padding-right: 25px;
     font-size: 14px;
     line-height: 18px;
+
     &:nth-last-child(1) {
       margin-bottom: 0;
     }
@@ -1864,6 +1866,15 @@ button {
 
 @media (min-width: $desktop-width) {
   .article-page {
+    h1 {
+      padding-right: 60px;
+    }
+
+    p,
+    cite {
+      padding-right: 200px;
+    }
+
     figure {
       margin-right: 0;
 
@@ -1889,6 +1900,30 @@ button {
         width: 700px;
         height: auto;
         margin-bottom: 10px;
+      }
+    }
+  }
+
+  .article-page__tags {
+    padding-right: 60px;
+  }
+
+  .article-page__preface {
+    p {
+      padding-right: 60px;
+    }
+  }
+
+  .article-page__caption {
+    padding-right: 200px;
+  }
+
+  .article-page__note {
+    ol {
+      padding-right: 200px;
+
+      li {
+        padding-right: 0;
       }
     }
   }
