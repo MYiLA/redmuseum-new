@@ -1478,6 +1478,21 @@ button {
     text-decoration: none;
   }
 
+  .article-page__note-num {
+    position: relative;
+    font-family: $font-accent;
+    color: #0481c3;
+    font-size: 12px;
+    line-height: 12px;
+    text-decoration: none;
+    
+    &:hover,
+    &:active,
+    &:focus {
+      opacity: 1;
+    }
+  }
+
   p {
     margin: 0;
     margin-bottom: 20px;
@@ -1644,21 +1659,6 @@ button {
   padding-top: 0;
 }
 
-.article-page__note-num {
-  position: relative;
-  font-family: $font-accent;
-  color: #0481c3;
-  font-size: 12px;
-  line-height: 12px;
-  text-decoration: none;
-
-  &:hover,
-  &:active,
-  &:focus {
-    opacity: 1;
-  }
-}
-
 .article-page__note-popup {
   display: none;
   width: 270px;
@@ -1790,6 +1790,15 @@ button {
         margin-bottom: 25px;
       }
     }
+
+    .article-page__note-popup {
+      width: 450px;
+      padding: 15px;
+      padding-right: 40px;
+      top: 25px;
+      font-size: 18px;
+      line-height: 24px;
+    }
   }
 
   .article-page__author-link {
@@ -1839,16 +1848,6 @@ button {
     text-decoration: none;
   }
 
-  .article-page__note-popup {
-    width: 450px;
-    padding: 15px;
-    padding-right: 30px;
-    top: 25px;
-
-    font-size: 18px;
-    line-height: 24px;
-  }
-
   .article-page__interview-name {
     font-size: 18px;
     line-height: 24px;
@@ -1861,6 +1860,16 @@ button {
 
   .article-page__main-text {
     margin-bottom: 15px;
+  }
+
+  .article-page__note-close {
+    top: 15px;
+    right: 18px;
+  
+    &::after,
+    &::before {
+      width: 26px;
+    }
   }
 }
 
