@@ -227,27 +227,29 @@ button {
 
 // Хедер шапка сайта /////////////////////////////////////////////
 .wrap {
+  width: 265px;
   position: relative;
   padding-top: 20px;
   padding-bottom: 20px;
-  padding-left: 25px;
-  padding-right: 30px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .header__wrap-fixed {
-  min-height: 60px;
+  min-height: 37px;
+  margin-bottom: 20px;
 }
 
 .header__menu {
+  width: 265px;
   display: flex;
   flex-wrap: nowrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-end;
   margin-bottom: 20px;
   transition: background-color 0.4s;
 
   &.fixed {
-    width: auto;
     z-index: 2;
     position: fixed;
     top: 0;
@@ -261,8 +263,8 @@ button {
   @include animation;
   display: inline-block;
   text-decoration: none;
-  margin-right: 20px;
-  padding-left: 14px;
+  margin-right: 15px;
+  padding-left: 10px;
   border-bottom: 1px solid $black;
 }
 
@@ -285,7 +287,7 @@ button {
   flex-grow: 1;
   padding: 0;
   margin: 0;
-  margin-right: 20px;
+  margin-right: 15px;
 }
 
 .header__search {
@@ -360,7 +362,9 @@ button {
 }
 
 .header__lang {
-  width: 20px;
+  width: auto;
+  padding-left: 9px;
+  padding-right: 9px;
   padding-bottom: 7px;
   border-bottom: 1px solid $black;
 
@@ -454,7 +458,9 @@ button {
 
 @media (min-width: $mobile-width-wide) {
   .header__lang {
-    width: 30px;
+    width: auto;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
   .header__menu {
@@ -462,19 +468,42 @@ button {
       width: 326px;
     }
   }
+
+  .header__logo {
+    margin-right: 20px;
+  }
+
+  .header__form {
+    margin-right: 20px;
+  }
+
+  .search__label {
+    right: 4px;
+  }
 }
 
 @media (min-width: $tablet-width) {
   .header__menu {
     &.fixed {
-      width: 495px;
+      width: 493px;
     }
+  }
+
+  .header__logo {
+    padding-right: 45px;
+  }
+
+  .header__lang {
+    width: auto;
+    padding-left: 9px;
+    padding-right: 9px;
   }
 }
 
 @media (min-width: $desktop-small-width) {
   .header__wrap-fixed {
-    min-height: 116px;
+    min-height: 87px;
+    margin-bottom: 20px;
   }
 
   .header__menu {
@@ -486,10 +515,15 @@ button {
     }
   }
 
+  .header__logo {
+    padding-left: 20px;
+    padding-right: 182px;
+  }
+
   .header__logo-text {
     padding-bottom: 14px;
     font-size: 18px;
-    line-height: 13px;
+    line-height: 14px;
   }
 
   .search__input {
@@ -501,13 +535,15 @@ button {
 
   .search__label {
     bottom: 14px;
-    right: 310px;
+    right: 115px;
     font-size: 18px;
     line-height: 13px;
   }
 
   .header__lang {
-    width: 56px;
+    width: auto;
+    padding-left: 20px;
+    padding-right: 20px;
     padding-bottom: 14px;
     font-size: 18px;
     line-height: 13px;
@@ -537,8 +573,8 @@ button {
   .tags__list {
     transition: 2s;
     border-bottom: 1px solid transparent;
-    padding-bottom: 30px;
-    margin-bottom: 30px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
     border-bottom: 1px solid $black;
   }
 
@@ -555,12 +591,12 @@ button {
     }
   }
 
-  .header__logo-text {
-    width: 375px;
-  }
+  // .header__logo-text {
+  //   width: 375px;
+  // }
 
   .search__label {
-    right: 500px;
+    right: 510px;
   }
 }
 
