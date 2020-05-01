@@ -956,6 +956,7 @@ button {
   text-decoration: none; }
 
 .article-page .article-page__note-num {
+  cursor: pointer;
   position: relative;
   font-family: "Aestetika", Arial, sans-serif;
   color: #0481c3;
@@ -1210,6 +1211,7 @@ button {
         margin-bottom: 0; } }
 
 .article-page__note-popup {
+  cursor: auto;
   display: none;
   width: 270px;
   padding: 10px;
@@ -1233,6 +1235,7 @@ button {
   height: 15px;
   border: none;
   background-color: transparent;
+  cursor: pointer;
   cursor: pointer;
   position: absolute;
   top: 7px;
