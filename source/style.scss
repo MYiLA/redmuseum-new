@@ -1515,6 +1515,7 @@ button {
   }
 
   .article-page__note-num {
+    cursor: pointer;
     position: relative;
     font-family: $font-accent;
     color: #0481c3;
@@ -1696,6 +1697,7 @@ button {
 }
 
 .article-page__note-popup {
+  cursor: auto;
   display: none;
   width: 270px;
   padding: 10px;
@@ -1718,6 +1720,7 @@ button {
 
 .article-page__note-close {
   @include close-btn;
+  cursor: pointer;
   position: absolute;
   top: 7px;
   right: 11px;
