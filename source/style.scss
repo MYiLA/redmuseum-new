@@ -2126,6 +2126,14 @@ button {
   }
 
   .article-page__custom-text {
+    blockquote {
+      margin-bottom: 25px;
+
+      & + p {
+      margin-bottom: 30px;
+    }
+    }
+
     h2 {
       padding-right: 200px;
     }
