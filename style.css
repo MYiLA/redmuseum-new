@@ -1244,6 +1244,7 @@ button {
     padding-top: 15px;
     margin-bottom: 10px;
     margin-top: 10px;
+    width: auto !important;
     padding-bottom: 10px;
     padding-top: 20px; }
     .article-page__custom-text figure::before {
