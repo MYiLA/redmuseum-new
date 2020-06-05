@@ -1777,6 +1777,8 @@ button {
   figure {
     @include line-top-bottom;
 
+    width: auto !important;
+
     padding-bottom: 10px;
     padding-top: 20px;
 
