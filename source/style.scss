@@ -1447,6 +1447,11 @@ button {
 
 .sharing__link {
   @include animation();
+
+  &:focus {
+    outline: auto;
+    opacity: 1;
+  }
 }
 
 .sharing__link-arrow {
@@ -1477,7 +1482,7 @@ button {
   .sharing__list {
     width: 40px;
     margin-bottom: 35px;
-    margin-right: -40px;
+    margin-right: -51px;
   }
 
   .sharing__item {
@@ -1495,7 +1500,7 @@ button {
   }
 
   .sharing__link-arrow {
-    margin-right: -26px;
+    margin-right: -39px;
     display: block;
     width: 20px;
     height: 20px;
