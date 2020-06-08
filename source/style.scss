@@ -1450,16 +1450,15 @@ button {
 
 .sharing__link {
   @include animation();
+}
 
-  &:focus {
-    outline: auto;
-    opacity: 1;
-  }
+.article-page .sharing__link:focus {
+  outline: auto;
+  opacity: 1;
 }
 
 .sharing__link-arrow {
   opacity: 0;
-
   margin: 0;
   margin-left: auto;
   margin-right: -8px;
