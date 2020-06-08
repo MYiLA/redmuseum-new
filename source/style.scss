@@ -356,10 +356,11 @@ button {
 }
 
 .search__label {
+  padding-right: 20px;
   position: absolute;
   pointer-events: none;
   bottom: 7px;
-  right: 5px;
+  left: 5px;
 
   font-family: $font-accent;
   font-size: 10px;
@@ -533,7 +534,7 @@ button {
   }
 
   .search__label {
-    right: 4px;
+    left: 10px;
   }
 }
 
@@ -589,8 +590,10 @@ button {
   }
 
   .search__label {
+    width: 100%;
     bottom: 14px;
-    right: 115px;
+    left: 20px;
+    padding-right: 70px;
     font-size: 18px;
     line-height: 13px;
   }
