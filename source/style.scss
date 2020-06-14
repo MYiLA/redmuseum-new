@@ -324,6 +324,7 @@ button {
 }
 
 .header__logo-text {
+  min-width: 96px;
   margin: 0;
   padding: 0;
   padding-bottom: 6px;
@@ -578,6 +579,7 @@ button {
   }
 
   .header__logo-text {
+    min-width: 173px;
     padding-bottom: 14px;
     font-size: 18px;
     line-height: 14px;
