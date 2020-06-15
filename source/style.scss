@@ -31,11 +31,11 @@ $purple: #6f5cad;
     opacity: 0.6;
   }
 
-  &:focus,
-  &:active {
-    outline: none;
-    opacity: 0.4;
-  }
+  // &:focus,
+  // &:active {
+  //   outline: none;
+  //   opacity: 0.4;
+  // }
 }
 
 @mixin visually-hidden {
